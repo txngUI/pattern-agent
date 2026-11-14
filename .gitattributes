@@ -1,2 +1,7 @@
-# Auto detect text files and perform LF normalization
+# Détection automatique des fichiers texte et normalisation LF
 * text=auto
+
+# Les scripts shell doivent garder des fins de ligne LF, même sous Windows.
+*.sh            text eol=lf
+.githooks/*     text eol=lf
+.agents/*       text eol=lf

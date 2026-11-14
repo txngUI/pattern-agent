@@ -1,0 +1,17 @@
+# Propre au dépôt pattern-agent : non copié dans les projets par install.sh.
+name: selftest
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  selftest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Auto-test du kit
+        run: sh tests/selftest.sh

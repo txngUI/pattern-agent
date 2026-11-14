@@ -1,0 +1,17 @@
+name: governance
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # À ADAPTER : installe ici les outils du projet (actions/setup-node, actions/setup-java…)
+      - name: Vérification complète
+        run: sh scripts/check.sh
