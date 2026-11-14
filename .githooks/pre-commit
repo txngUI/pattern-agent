@@ -1,0 +1,6 @@
+#!/bin/sh
+# Hook git : bloque le commit si la vérification rapide échoue. Géré par pattern-agent.
+# Activation : git config core.hooksPath .githooks   (fait par scripts/install.sh)
+files=$(git diff --cached --name-only --diff-filter=ACMR | tr '\n' ' ')
+# shellcheck disable=SC2086  # découpage voulu : un argument par fichier
+exec sh scripts/check.sh --quick $files

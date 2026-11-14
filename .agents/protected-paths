@@ -1,0 +1,19 @@
+# Chemins que les agents ne doivent pas modifier (hook guard-protected.sh).
+# Un motif par ligne, syntaxe `case` du shell : `*` traverse aussi les `/`.
+# Chemins relatifs à la racine du projet. Lignes vides et commentaires ignorés.
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Garde-fous : la loi ne s'auto-modifie pas
+.agents/protected-paths
+.claude/settings.json
+scripts/hooks/*
+.githooks/*
+
+# À ADAPTER : exemples propres au projet
+# */db/migration/V*     migrations Flyway déjà appliquées
+# package-lock.json     fichiers générés
